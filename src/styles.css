@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  font-family: 'Bangers', cursive;
+  font-size: 25px;
+  background-image: url(http://www.seekgif.com/uploads/2017/09/pics-photos--comic-dot-background-2.png);
+  background-size: 320px;
+}

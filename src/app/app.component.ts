@@ -1,32 +1,82 @@
-import { Component } from '@angular/core';
+import { Component } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   template: `
-    <!--The content below is only a placeholder and can be replaced.-->
-    <div style="text-align:center" class="content">
-      <h1>
-        Welcome to {{title}}!
-      </h1>
-      <span style="display: block">{{ title }} app is running!</span>
-      <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-    </div>
-    <h2>Here are some links to help you start: </h2>
+    <h1>Serverless September Twitter Feed</h1>
     <ul>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-      </li>
-      <li>
-        <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-      </li>
+      <li
+        *ngFor="let feed of feeds; let e=even; let o=odd;"
+        class="box"
+        [ngClass]="{ 'box1': e, 'box2': o }"
+        [innerHTML]="feed.Content | twitterCard"
+      ></li>
     </ul>
-    
   `,
-  styles: []
+  styles: [
+    `
+      :host {
+        text-align: center;
+      }
+      h1 {
+        -webkit-text-stroke: 1px black;
+        color: white;
+        text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000,
+          -1px 1px 0 #000, 1px 1px 0 #000;
+        font-size: 3em;
+      }
+      ul {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+      .box {
+        list-style: none;
+        margin: 25px;
+        max-width: 500px;
+        padding: 10px;
+        background: #fff;
+        border: solid black;
+        border-color: black;
+        float: left;
+      }
+      .box1 {
+        border-width: 3px 4px 3px 5px;
+        border-radius: 95% 4% 92% 5%/4% 95% 6% 95%;
+        transform: rotate(1deg);
+      }
+      .box2 {
+        border-width: 5px 3px 3px 5px;
+        border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
+        transform: rotate(-1deg);
+      }
+      a.twitter-handle {
+        color: pink;
+      }
+    `
+  ]
 })
 export class AppComponent {
-  title = 'serverless-september';
+  title = "serverless-september";
+  feeds: {
+    Id: number;
+    Content: string;
+    WhenDate: string;
+    Location: string;
+  }[] = [
+    {
+      Id: 12,
+      Content:
+        "RT @azureadvocates: Serverless inferencing at high-scale with Python and TensorFlow by @nthonyChu: https://t.co/rKntBX8Pcg #ServerlessSept…",
+      WhenDate: "2019-09-06T00:00:00.000Z",
+      Location: "Washington, DC"
+    }
+  ];
+
+  async ngOnInit() {
+    this.feeds = await (await fetch(
+      `https://serverless-september.azurewebsites.net/api/Mentions`
+    )).json();
+  }
 }

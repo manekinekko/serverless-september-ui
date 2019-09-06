@@ -1,6 +1,6 @@
 {
-  "name": "serverless-september",
-  "version": "0.0.0",
+  "name": "serverless-september-ui",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -8,6 +8,11 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
+  },
+  "author": {
+    "name": "Wassim Chegham",
+    "email": "github@wassim.dev",
+    "url": "https://twitter.com/manekinekko"
   },
   "private": true,
   "dependencies": {
