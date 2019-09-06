@@ -1,6 +1,6 @@
 # Serverless September Twitter Feed
 
-This is app is an UI for the Twitter feed API built by my buddy (@chris_noring)[https://twitter.com/chris_noring] : https://serverless-september.azurewebsites.net/api/Mentions
+This is app is an UI for the Twitter feed API built by my buddy [@chris_noring](https://twitter.com/chris_noring): https://serverless-september.azurewebsites.net/api/Mentions
 
 ## Contriuting
 
