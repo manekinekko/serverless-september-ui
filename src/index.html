@@ -1,14 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Serverless September</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet">
-</head>
-<body>
-  <app-root></app-root>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <title>#ServerlessSeptember Twitter Feed</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Bangers", cursive;
+        font-size: 25px;
+        background-image: url(http://www.seekgif.com/uploads/2017/09/pics-photos--comic-dot-background-2.png);
+        background-size: 320px;
+      }
+
+      footer {
+        position: fixed;
+        bottom: 4px;
+        background: white;
+        padding: 5px;
+        right: 0;
+        border: 6px solid black;
+      }
+
+      footer img {
+        width: 25px;
+        height: 25px;
+      }
+
+      footer a {
+        text-decoration: none;
+        color: #2196F3;
+      }
+    </style>
+  </head>
+  <body>
+    <app-root></app-root>
+    <footer>
+      API by
+      <a target="_blank" href="https://twitter.com/chris_noring">
+        @chris_noring
+      </a>
+      ❤ UI by
+      <a target="_blank" href="https://twitter.com/manekinekko">
+        @manekinekko
+      </a>
+      <a
+        target="_blank"
+        href="https://github.com/manekinekko/serverless-september-ui"
+      >
+        <img
+          width="25"
+          height="25"
+          src="./assets/github-logo.png"
+          alt="github logo"
+        />
+      </a>
+    </footer>
+  </body>
 </html>

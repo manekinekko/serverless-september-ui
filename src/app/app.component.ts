@@ -1,9 +1,10 @@
 import { Component } from "@angular/core";
+import { ViewEncapsulation } from '@angular/compiler/src/core';
 
 @Component({
   selector: "app-root",
   template: `
-    <h1>Serverless September Twitter Feed</h1>
+    <h1><a href="https://twitter.com/hashtag/ServerlessSeptember" target="__blank">#ServerlessSeptember</a> Twitter Feed</h1>
     <ul>
       <li
         *ngFor="let feed of feeds; let e=even; let o=odd;"
@@ -25,6 +26,9 @@ import { Component } from "@angular/core";
           -1px 1px 0 #000, 1px 1px 0 #000;
         font-size: 3em;
       }
+      h1 a {
+        color: #D83539;
+      }
       ul {
         display: flex;
         align-items: center;
@@ -41,6 +45,12 @@ import { Component } from "@angular/core";
         border-color: black;
         float: left;
       }
+      .box ::ng-deep a {
+        color: #FF5722;
+      }
+      .box ::ng-deep a.twitter-handle {
+        color: #2196F3;
+      }
       .box1 {
         border-width: 3px 4px 3px 5px;
         border-radius: 95% 4% 92% 5%/4% 95% 6% 95%;
@@ -50,9 +60,6 @@ import { Component } from "@angular/core";
         border-width: 5px 3px 3px 5px;
         border-radius:95% 4% 97% 5%/4% 94% 3% 95%;
         transform: rotate(-1deg);
-      }
-      a.twitter-handle {
-        color: pink;
       }
     `
   ]
