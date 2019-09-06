@@ -13,53 +13,72 @@
     <style>
       body {
         font-family: "Bangers", cursive;
-        font-size: 25px;
-        background-image: url(http://www.seekgif.com/uploads/2017/09/pics-photos--comic-dot-background-2.png);
-        background-size: 320px;
+        background-image: url(http://www.seekgif.com/uploads/2017/09/pics-photos--comic-dot-background-2.png),
+          radial-gradient(circle closest-side, yellow, #f06d06);
+        background-size: 320px, cover;
+        font-size: 1.5em;
+        background-blend-mode: overlay;
+        background-repeat: repeat, no-repeat;
+        background-attachment: fixed;
+        padding-bottom: 80px;
       }
 
       footer {
         position: fixed;
         bottom: 4px;
-        background: white;
+        font-size: 0.8em;
+        width: calc(100% - 60px);
+        text-align: center;
+        display: flex;
+        justify-content: center;
+      }
+
+      footer section {
         padding: 5px;
-        right: 0;
+        right: 20px;
+        background: white;
         border: 6px solid black;
+        width: 340px;
       }
 
       footer img {
-        width: 25px;
-        height: 25px;
+        width: 20px;
+        height: 20px;
       }
 
       footer a {
-        text-decoration: none;
-        color: #2196F3;
+        color: #2196f3;
+      }
+      footer .github-logo-link {
+        margin-left: 10px;
       }
     </style>
   </head>
   <body>
     <app-root></app-root>
     <footer>
-      API by
-      <a target="_blank" href="https://twitter.com/chris_noring">
-        @chris_noring
-      </a>
-      ❤ UI by
-      <a target="_blank" href="https://twitter.com/manekinekko">
-        @manekinekko
-      </a>
-      <a
-        target="_blank"
-        href="https://github.com/manekinekko/serverless-september-ui"
-      >
-        <img
-          width="25"
-          height="25"
-          src="./assets/github-logo.png"
-          alt="github logo"
-        />
-      </a>
+      <section>
+        API by
+        <a target="_blank" href="https://twitter.com/chris_noring">
+          @chris_noring
+        </a>
+        ❤ UI by
+        <a target="_blank" href="https://twitter.com/manekinekko">
+          @manekinekko
+        </a>
+        <a
+          target="_blank"
+          class="github-logo-link"
+          href="https://github.com/manekinekko/serverless-september-ui"
+        >
+          <img
+            width="20"
+            height="20"
+            src="./assets/github-logo.png"
+            alt="github logo"
+          />
+        </a>
+      </section>
     </footer>
   </body>
 </html>
