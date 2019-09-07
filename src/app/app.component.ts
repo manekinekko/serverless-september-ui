@@ -43,6 +43,8 @@ import { ViewEncapsulation } from "@angular/compiler/src/core";
         flex-wrap: wrap;
         align-items: center;
         justify-content: center;
+        margin: 0;
+        padding: 0;
       }
       li {
         list-style: none;
