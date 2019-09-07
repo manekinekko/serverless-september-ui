@@ -1,17 +1,28 @@
 import { Component } from "@angular/core";
 
+export interface Feed {
+  Id: number;
+  Url: string;
+  Content: string;
+  WhenDate: string;
+  Location: string;
+}
+
 @Component({
   selector: "app-root",
   template: `
     <img class="cloud-image" src="assets/cloud.png" />
     <h1>
-      <a href="https://twitter.com/hashtag/ServerlessSeptember" target="__blank">#ServerlessSeptember</a>
+      <a href="{{ hashTagUrl }}" target="__blank">#ServerlessSeptember</a>
       Twitter Feed
     </h1>
     <ul>
       <li *ngFor="let feed of feeds; let e = even; let o = odd">
-        <span>From {{ feed.Location || "Twitter" }}</span>
-        <main class="box" [ngClass]="{ box1: e, box2: o }" [innerHTML]="feed.Content | twitterCard"></main>
+        <a class="tweet-url" [href]="feed.Url" target="__blank"> 
+          <span class="tweet-location">From {{ feed.Location || "Twitter" }}</span>
+          <main class="tweet-content" [ngClass]="{ card1: e, card2: o }" [innerHTML]="feed.Content | twitterCard"></main>
+          <span class="tweet-date">{{ feed.WhenDate | date:"short" }}</span>
+        </a>
       </li>
     </ul>
   `,
@@ -49,7 +60,6 @@ import { Component } from "@angular/core";
         list-style: none;
       }
       li span {
-        top: 32px;
         font-size: 18px;
         box-shadow: 3px 3px 0 black;
         position: relative;
@@ -58,7 +68,19 @@ import { Component } from "@angular/core";
         padding: 5px;
         background: white;
       }
-      .box {
+      .tweet-location {
+        top: 12px;
+        float: left;
+      }
+      .tweet-date {
+        bottom: 41px;
+        float: right;
+        right: 33px;
+      }
+      li a.tweet-url {
+        color: black;
+      }
+      .tweet-content {
         margin: 25px;
         max-width: 500px;
         padding: 30px 20px;
@@ -67,22 +89,22 @@ import { Component } from "@angular/core";
         border-color: black;
         transition: transform 0.1s cubic-bezier(0.17, 0.67, 0.79, 0.48);
       }
-      .box:hover {
+      .tweet-content:hover {
         transform: rotate(0deg);
       }
-      .box ::ng-deep a {
+      .tweet-content ::ng-deep a {
         color: #ff5722;
       }
-      .box ::ng-deep a.twitter-handle {
+      .tweet-content ::ng-deep a.twitter-handle {
         color: #2196f3;
       }
-      .box1 {
+      .card1 {
         border-width: 3px 4px 3px 5px;
         border-radius: 95% 4% 92% 5%/4% 95% 6% 95%;
         transform: rotate(1deg);
         box-shadow: 5px 5px 0px white;
       }
-      .box2 {
+      .card2 {
         border-width: 5px 3px 3px 5px;
         border-radius: 95% 4% 97% 5%/4% 94% 3% 95%;
         transform: rotate(-1deg);
@@ -92,14 +114,11 @@ import { Component } from "@angular/core";
   ]
 })
 export class AppComponent {
-  feeds: {
-    Id: number;
-    Content: string;
-    WhenDate: string;
-    Location: string;
-  }[] = [
+  hashTagUrl = "https://twitter.com/hashtag/ServerlessSeptember";
+  feeds: Feed[] = [
     {
       Id: 0,
+      Url: this.hashTagUrl,
       Content:
         "Loading content, please wait...",
       WhenDate: "2019-09-06T00:00:00.000Z",
@@ -109,5 +128,9 @@ export class AppComponent {
 
   async ngOnInit() {
     this.feeds = await (await fetch(`https://serverless-september.azurewebsites.net/api/Mentions`)).json();
+    this.feeds = this.feeds.map(feed => ({
+      ...feed,
+      Url: feed.Url || this.hashTagUrl
+    }))
   }
 }
