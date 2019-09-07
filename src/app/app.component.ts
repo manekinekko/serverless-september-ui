@@ -11,14 +11,14 @@ export interface Feed {
 @Component({
   selector: "app-root",
   template: `
-    <img class="cloud-image" src="assets/cloud.png" />
+    <img class="cloud-image" src="assets/cloud.png" alt="image of a comic bubble"/>
     <h1>
-      <a href="{{ hashTagUrl }}" target="__blank">#ServerlessSeptember</a>
+      <a href="{{ hashTagUrl }}" target="__blank" rel="noopener">#ServerlessSeptember</a>
       Twitter Feed
     </h1>
     <ul>
       <li *ngFor="let feed of feeds; let e = even; let o = odd">
-        <a class="tweet-url" [href]="feed.Url" target="__blank"> 
+        <a class="tweet-url" [href]="feed.Url" target="__blank" rel="noopener"> 
           <span class="tweet-location">From {{ feed.Location || "Twitter" }}</span>
           <main class="tweet-content" [ngClass]="{ card1: e, card2: o }" [innerHTML]="feed.Content | twitterCard"></main>
           <span class="tweet-date">{{ feed.WhenDate | date:"short" }}</span>
