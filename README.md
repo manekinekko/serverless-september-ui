@@ -2,7 +2,7 @@
 
 <h1 align=center>⚡️ Serverless September Twitter Feed ⚡️</h1>
 
-<img align=center src="https://raw.githubusercontent.com/manekinekko/serverless-september-ui/master/src/assets/og_imagee.png" />
+<img align=center src="https://raw.githubusercontent.com/manekinekko/serverless-september-ui/master/src/assets/og_image.png" />
 
 <p align=center>This app is an UI for the <a href="https://serverless-september.azurewebsites.net/api/Mentions">Twitter feed API</a> built by my buddy <a href="https://twitter.com/chris_noring">@chris_noring</a></p>
 
