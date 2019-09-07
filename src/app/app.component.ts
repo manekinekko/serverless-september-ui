@@ -4,7 +4,7 @@ import { ViewEncapsulation } from "@angular/compiler/src/core";
 @Component({
   selector: "app-root",
   template: `
-    <img class="cloud-image" src="https://png.pngtree.com/element_our/sm/20180517/sm_5afd6708a2c2e.png" />
+    <img class="cloud-image" src="assets/cloud.png" />
     <h1>
       <a href="https://twitter.com/hashtag/ServerlessSeptember" target="__blank">#ServerlessSeptember</a>
       Twitter Feed
@@ -25,7 +25,7 @@ import { ViewEncapsulation } from "@angular/compiler/src/core";
         -webkit-text-stroke: 1px black;
         color: white;
         text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 6px 7px 0 #fff;
-        font-size: 5vw;
+        font-size: 10vw;
         position: relative;
       }
       h1 a {
