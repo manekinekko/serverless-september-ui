@@ -1,8 +1,15 @@
-# Serverless September Twitter Feed
+<div>
 
-This app is an UI for the [Twitter feed API](https://serverless-september.azurewebsites.net/api/Mentions) built by my buddy [@chris_noring](https://twitter.com/chris_noring): 
+<h1 align=center>⚡️ Serverless September Twitter Feed ⚡️</h1>
 
-## Contriuting
+<img align=center src="https://raw.githubusercontent.com/manekinekko/serverless-september-ui/master/src/assets/og_imagee.png" />
+
+<p align=center>This app is an UI for the [Twitter feed API](https://serverless-september.azurewebsites.net/api/Mentions) built by my buddy [@chris_noring](https://twitter.com/chris_noring)</p>
+
+</div>
+
+
+## Contributing
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.0-next.3.
 
