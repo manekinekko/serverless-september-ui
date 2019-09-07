@@ -4,7 +4,7 @@
 
 <img align=center src="https://raw.githubusercontent.com/manekinekko/serverless-september-ui/master/src/assets/og_imagee.png" />
 
-<p align=center>This app is an UI for the [Twitter feed API](https://serverless-september.azurewebsites.net/api/Mentions) built by my buddy [@chris_noring](https://twitter.com/chris_noring)</p>
+<p align=center>This app is an UI for the <a href="https://serverless-september.azurewebsites.net/api/Mentions">Twitter feed API</a> built by my buddy <a href="https://twitter.com/chris_noring">@chris_noring</a></p>
 
 </div>
 
