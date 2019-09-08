@@ -21,7 +21,7 @@ export interface Feed {
         <a class="tweet-url" [href]="feed.Url" target="__blank" rel="noopener"> 
           <span class="tweet-location">From {{ feed.Location || "Twitter" }}</span>
           <main class="tweet-content" [ngClass]="{ card1: e, card2: o }" [innerHTML]="feed.Content | twitterCard"></main>
-          <span class="tweet-date">{{ feed.WhenDate | date:"short" }}</span>
+          <!--<span class="tweet-date">{{ feed.WhenDate | date:"short" }}</span>-->
         </a>
       </li>
     </ul>
