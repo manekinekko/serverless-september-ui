@@ -130,7 +130,7 @@ export class AppComponent {
     this.feeds = await (await fetch(`https://serverless-september.azurewebsites.net/api/Mentions`)).json();
     this.feeds = this.feeds.map(feed => ({
       ...feed,
-      Url: `https://twitter.com/manekinekko/status/${feed.Url}` || this.hashTagUrl
+      Url: (feed.Url && `https://twitter.com/manekinekko/status/${feed.Url}`) || this.hashTagUrl
     }))
   }
 }
