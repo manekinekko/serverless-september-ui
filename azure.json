@@ -1,0 +1,17 @@
+{
+  "hosting": [
+    {
+      "app": {
+        "project": "serverless-september",
+        "target": "build",
+        "configuration": "production",
+        "path": "dist/serverless-september"
+      },
+      "azureHosting": {
+        "subscription": "198cd413-7754-4cae-b7b4-048151e7bb79",
+        "resourceGroupName": "serverless-september-static-deploy",
+        "account": "serverlessseptembestatic"
+      }
+    }
+  ]
+}
